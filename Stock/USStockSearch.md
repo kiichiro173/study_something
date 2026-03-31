@@ -1,12 +1,24 @@
-# 日本株の探し方
-## 日本株の探し方
-・新高値を付けた企業：グロース企業から  
+# 米国株の探し方
+## 米国株の探し方
+・新高値を付けた企業
 ・決算後のPTSの値上がり益を見る
+★米国株が10億ドルの株は危ないので買わない
 
 サイト  
-[四季報新高値更新](https://shikiho.toyokeizai.net/ranking/21)  
-[Yahooファイナンス新高値更新](https://finance.yahoo.co.jp/stocks/ranking/yearToDateHigh?market=tokyoM&term=daily)  
-[バフェットコード](https://www.buffett-code.com/)
+[Seeking Alpha](https://seekingalpha.com/)
+
+
+## コンセンサス予想チェック
+★下記項目はコンセンサス予想を上回っているか？
+・今期のEPS
+・今期の売上高
+
+![alt text](./imagedata/image2.png)
+
+・Rating情報
+買い売りの評価を確認できる。
+![alt text](./imagedata/image.png)
+
 
 ## 各指標チェック項目
 ・売上：右肩あがりか？（10％増だとよき）  
